@@ -35,7 +35,7 @@ int main() {
     int file;
     file = open("info.dat", O_RDONLY);
 
-    char *line = (char *)calloc(0,0);
+    void *line = calloc(0,0);
     int sizeOfLine = 0;
 
     Driver * drivers = calloc(0,sizeof(Driver));
@@ -50,7 +50,7 @@ int main() {
         drivers = realloc(drivers,sizeof(Driver)*numberOfElements);
         // Pilot name:
         char* pilotName = (char*)malloc(sizeof(char)*(sizeOfLine+1));
-        strncpy(pilotName, line, sizeOfLine);
+        strncpy(pilotName, (char*)line, sizeOfLine);
         pilotName[sizeOfLine] = '\n';
         drivers[i].name = pilotName;
         drivers[i].sizeOfName = sizeOfLine;
@@ -58,26 +58,26 @@ int main() {
         // Competition ID:
         readPilotName(file, line);
         char* compID = (char*)malloc(sizeof(char)*(3)); // 2 characters plus '\0'
-        compID[0] = line[0];
-        compID[1] = line[1];
+        compID[0] = ((char*)line)[0];
+        compID[1] = ((char*)line)[1];
         compID[2] = '\0';
         drivers[i].id = compID;
         skipDelimiter(file, '-');
 
         // Hour/s :
         sizeOfLine = readUntilLimit(file, line, ':');
-        int hours = *line;
+        int hours = *(int*)line;
         drivers[i].hour = hours;
 
         read(file,line,1);
         // Minutes:
         sizeOfLine = readUntilLimit(file, line, ':');
-        int min = *line;
+        int min = *(int*)line;
         drivers[i].min = min;
         read(file,line,1);
         // Seconds:
         sizeOfLine = readUntilLimit(file, line, '-');
-        int secs = *line;
+        int secs = *(int*)line;
         drivers[i].sec = secs;
 
         read(file,line,1);

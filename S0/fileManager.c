@@ -20,7 +20,7 @@
  */
 int getSizeOfLine(int file, char charLimit) {
     int charPosition = 0;
-    char iteratorChar;
+    char iteratorChar;  // We use char because it's 1 byte size, so we can count the exact number of bytes
     while(1){
         if(read(file, &iteratorChar, 1) == 0)
             return 0;
@@ -32,10 +32,10 @@ int getSizeOfLine(int file, char charLimit) {
     return charPosition;
 }
 
-int readUntilLimit(int file, char* line, char limit){
+int readUntilLimit(int file, void* line, char limit){
     int endOfLinePosition = getSizeOfLine(file, limit);
 
-    line = (char *)realloc(line,(endOfLinePosition)*sizeof(char));
+    line = realloc(line,(endOfLinePosition)*sizeof(line));
     // Now we have to go back on the file using read and the same number of bytes from endOfLinePosition
     lseek(file, -endOfLinePosition-1, SEEK_CUR);
     read(file, line, endOfLinePosition);
@@ -43,13 +43,13 @@ int readUntilLimit(int file, char* line, char limit){
     return endOfLinePosition;
 }
 
-int readLine(int file, char* line){
+int readLine(int file, void* line){
     char endOfLine = '/';
 
     return readUntilLimit(file, &*line, endOfLine);
 }
 
-int readPilotName(int file, char *line){
+int readPilotName(int file, void *line){
     char delimiter = '-';
 
     return readUntilLimit(file, line, delimiter);

@@ -8,13 +8,13 @@
 int getSizeOfLine(int file, char charLimit);
 
 
-int readUntilLimit(int file, char* line, char limit);
+int readUntilLimit(int file, void* line, char limit);
 
 
-int readLine(int file, char* line);
+int readLine(int file, void* line);
 
 
-int readPilotName(int file, char *line);
+int readPilotName(int file, void *line);
 
 
 void skipDelimiter(int file, char delimiter);
