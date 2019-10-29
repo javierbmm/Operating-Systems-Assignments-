@@ -12,11 +12,11 @@
 
 typedef struct Frame {
     char type;
-    char *length;
+    char length[2];
     char* data;
 }frame;
 
-int main(int argc, char *argv[])
+int main()
 {
     int sockfd = 0, n = 0;
     char recvBuff[1024];
