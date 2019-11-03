@@ -1,0 +1,7 @@
+T0-boil the water-8
+T1-make the sauce-25
+T2-put the pasta-1-T0
+T3-boil the pasta-5-T2
+T4-drainla pasta-2-T3
+T5-mix pasta and sauce-2-T1
+T6-serve-3-T5
