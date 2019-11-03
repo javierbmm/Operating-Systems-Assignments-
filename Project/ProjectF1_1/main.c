@@ -55,7 +55,6 @@ int main(int arg, const char* argv[]) {
 
         read(0, user, BUFF_SIZE);
         command = parseInput(user);
-        printf("command: %d\n",command);
         if (command >= 0 && command != 6) {
             getCommand(command, user);
             printf("flag\n");
