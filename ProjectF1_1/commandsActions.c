@@ -2,7 +2,10 @@
 // Created by Olívia Rey Pellicer on 25/10/2019.
 //
 
-#include "commandsActions.h"
+#include <commandsActions.h>
+#include <unistd.h>
+#include <string.h>
+#include <stdio.h>
 
 #define SHOWCONNECTIONS "SHOW CONNECTIONS"
 #define CONNECT "CONNECT"
@@ -13,13 +16,15 @@
 #define EXIT "EXIT"
 #define ERRORCOMMAND "ERROR! Not valid command."
 #define TESTING "Testing..."
-#define NOCONNECTIONS "No conntections available.\n"
+#define NOCONNECTIONS "No connections available.\n"
 #define COULDNTCONNECT "Could not connect to the port.\n"
+#define BUFF_SIZE 180
 
+// Get the command and process it
 void getCommand(int i, char * user) {
     int j = 0, k = 0;
-    char * aux, *text, *port, *user2, *audio;
-    int port;
+    char aux[BUFF_SIZE], text[BUFF_SIZE], port_s[BUFF_SIZE], user2[BUFF_SIZE], audio[BUFF_SIZE];
+    // int port; ??
     switch (i) {
         case 0:
             write(1, TESTING, strlen(TESTING));
@@ -29,12 +34,12 @@ void getCommand(int i, char * user) {
             j = strlen(CONNECT) + 1;
             k = 0;
             while (user[j] > '0' && user[j] < '9') {
-                port[k] = user[j];
+                port_s[k] = user[j];
                 k++;
                 j++;
             }
-            port[k] = '\0';
-            sprintf(aux, NULL, port);
+            port_s[k] = '\0';
+            sprintf(aux, "%s", port_s); // ???
             write(1, COULDNTCONNECT, strlen(COULDNTCONNECT));
 
             break;
