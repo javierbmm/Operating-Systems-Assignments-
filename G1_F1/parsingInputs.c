@@ -8,14 +8,7 @@
 #include <string.h>
 #include <stdlib.h>
 
-#define SHOWCONNECTIONS "SHOW CONNECTIONS"
-#define CONNECT "CONNECT"
-#define SAY "SAY"
-#define BROADCAST "BROADCAST"
-#define SHOWAUDIOS "SHOW AUDIOS"
-#define DOWNLOAD "DOWNLOAD"
-#define EXIT "EXIT"
-#define ERRORCOMMAND "ERROR! Not valid command.\n"
+
 
 
 int parseInput(char *user) {

@@ -7,18 +7,8 @@
 #include <string.h>
 #include <stdio.h>
 
-#define SHOWCONNECTIONS "SHOW CONNECTIONS"
-#define CONNECT "CONNECT"
-#define SAY "SAY"
-#define BROADCAST "BROADCAST"
-#define SHOWAUDIOS "SHOW AUDIOS"
-#define DOWNLOAD "DOWNLOAD"
-#define EXIT "EXIT"
-#define ERRORCOMMAND "ERROR! Not valid command."
-#define TESTING "Testing..."
-#define NOCONNECTIONS "No connections available.\n"
-#define COULDNTCONNECT "Could not connect to the port.\n"
-#define BUFF_SIZE 180
+
+
 
 // Get the command and process it
 void getCommand(int i, char * user) {

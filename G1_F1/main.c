@@ -18,7 +18,7 @@ int close_1 = 0;
 void writeUser(char * username) {
     write(1, "$", strlen ("$"));
     write(1, username, strlen(username));
-    write(1, ":\n", strlen (":\n"));
+    write(1, ":", strlen (":"));
 }
 
 void kctrlc() {
@@ -58,9 +58,9 @@ int main(int arg, const char* argv[]) {
         if (command >= 0 && command != 6) {
             getCommand(command, user);
         }
-        else{
-            break;
-        }
+        //else{
+          //  break;
+        //}
         // Empty-ing the buffer
         memset(user,0,strlen(user));
         user[0] = '\0';

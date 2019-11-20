@@ -9,15 +9,7 @@
 #include <stdio.h>
 #include <string.h>
 
-typedef struct  {
-char * user_name;
-char * audio_folder;
-char * ip;
-char * port;
-char * web_ip;
-char * init_port;
-char * final_port;
-} FileData;
+
 
 int getSizeOfLine(int file, char charLimit);
 int readUntilLimit(int file, char** line, char limit);
