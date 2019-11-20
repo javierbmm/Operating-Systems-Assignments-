@@ -6,8 +6,12 @@
 
 #define PROJECTF1_1_FILEMANAGER_H
 #include <fcntl.h>
+#include <unistd.h>
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
+#include "types.h"
+
 
 
 
