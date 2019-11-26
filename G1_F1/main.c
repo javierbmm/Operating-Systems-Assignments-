@@ -1,19 +1,15 @@
-#include <stdio.h>
-#include <string.h>
-#include <unistd.h>
-#include <signal.h>
-#include <stdlib.h>
+
 #include "fileManager.h"
 #include "commandsActions.h"
 #include "parsingInputs.h"
 
+#include <fcntl.h>
+#include <unistd.h>
 
 #define FILENAME_ERROR "Error! You must introduce the name of the configuration file.\n\n"
 #define START "Starting Trinity...\n\n"
 #define PERSEFONE "$Persefone:  "
-#define BUFF_SIZE 500
 
-int close_1 = 0;
 
 void writeUser(char * username) {
     write(1, "$", strlen ("$"));
@@ -22,15 +18,22 @@ void writeUser(char * username) {
 }
 
 void kctrlc() {
-    write (1, "DISCONNECTING TRINITY...\n", strlen("DISCONNECTING TRINITY...\n"));
-    close_1 = 1;
+    write (1, "\nDISCONNECTING TRINITY...\n", strlen("DISCONNECTING TRINITY...\n\n\n"));
+    close_1 = TRUE;
+    /* the next command is to change the locking behaviour of system call. My idea is to unblock read() so I can
+     * interrupt the program whenever the user press ctrl+c
+    */
+    fcntl(0, F_SETFL, fcntl(0, F_GETFL) | O_NONBLOCK); // TODO: check this function because can be dangerous (see the comment above)
 }
 int main(int arg, const char* argv[]) {
+    fcntl(0, F_SETFL, fcntl(0, F_GETFL) & ~O_NONBLOCK);
+    close_1 = FALSE;
+    signal(SIGINT, kctrlc);
+    signal(SIGTERM, kctrlc);
     FileData data;
-    char *user = malloc(1);
+    char *user = calloc(0,0);
     int command, file;
     char buffer[BUFF_SIZE];
-    user [0] =  '\0';
 
     //signal(SIGINT, kctrlc);
     if (arg != 2) {
@@ -48,24 +51,31 @@ int main(int arg, const char* argv[]) {
     }
 
     data = getFileData(file);
-    user = realloc(user, (BUFF_SIZE)*sizeof(user));
+    //user = realloc(user, (BUFF_SIZE)*sizeof(user));
 
-    while (close_1 == 0) {
+    while (close_1 == FALSE) {
         writeUser(data.user_name);
 
-        read(0, user, BUFF_SIZE);
+        readUntil(STDIN_FILENO, &user,'\n');
+        if(close_1 == TRUE)
+            break;
         command = parseInput(user);
+        printf("got the command: %d\n", command);
         if (command >= 0 && command != 6) {
             getCommand(command, user);
         }
-        //else{
-          //  break;
-        //}
+        else if(command == 6){
+            break;
+        }
+        printf("finished\n");
         // Empty-ing the buffer
-        memset(user,0,strlen(user));
-        user[0] = '\0';
+        //printf("%ld",sizeof(user));
+        //memset(user,0, sizeof(user));
+        //user[0] = '\0';
     }
 
+    free(user);
     close(file);
+
     return 0;
 }

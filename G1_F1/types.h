@@ -2,8 +2,15 @@
 // Created by Olívia Rey Pellicer and Javier Merida on 25/10/2019.
 //
 
-#ifndef PROJECTF1_1_TYPES_H
-#define PROJECTF1_1_TYPES_H
+#ifndef TYPES_H
+#define TYPES_H
+
+#include <signal.h>
+#include <stdio.h>
+#include <string.h>
+#include <unistd.h>
+#include <signal.h>
+#include <stdlib.h>
 
 #define SHOWCONNECTIONS_ID "0"
 #define CONNECT_ID "1"
@@ -24,6 +31,10 @@
 #define NOCONNECTIONS "No connections available.\n"
 #define COULDNTCONNECT "Could not connect to the port.\n"
 #define BUFF_SIZE 180
+#define TRUE 1
+#define FALSE 0
+
+volatile int close_1; // Variable to control the system when a killing signal is received (SIGINT, SIGTERM)
 
 typedef struct  {
     char * user_name;
@@ -41,4 +52,4 @@ typedef struct {
     char * data;
 } Input;
 
-#endif //PROJECTF1_1_TYPES_H
+#endif //TYPES_H

@@ -5,8 +5,6 @@
 
 #include <fileManager.h>
 
-#define BUFF_SIZE 256
-
 
 /* Read the file char by char until it reaches the character specified in charLimit
  *  ARGS: int file
@@ -27,7 +25,39 @@ int getSizeOfLine(int file, char charLimit) {
 
     return charPosition;
 }
+int readUntil(int file, char** word, char limit){
+    int wordLength = 0;
+    //char *word = (char*)malloc(0);
+    //word = realloc(word, 0);
+    char letter[1];
+    while(close_1 == 0 && read(file, letter, 1) > 0){
+        // reading letter by letter (one byte at time) until limit
+        if(letter[0] == limit || letter == '\0')
+            break;
 
+        *word = (char*)realloc(*word, ++wordLength);
+        (*word)[wordLength-1] = letter[0];
+    }
+    printf("word: %s\n", *word);
+
+    return wordLength;
+}
+
+int sreadUntil(char *input, char** word, char limit){
+    printf("received: |%s|\n",input);
+    int wordLength = 0;
+    char letter[1];
+    while(close_1 == 0){
+        letter[0] = input[wordLength];
+        // reading letter by letter (one byte at time) until limit
+        if(letter[0] == limit || letter == '\0')
+            break;
+        *word = (char*)realloc(*word, ++wordLength);
+        (*word)[wordLength-1] = letter[0];
+    }
+    printf("word: %s\n",*word);
+    return wordLength;
+}
 int readUntilLimit(int file, char** line, char limit){
     int endOfLinePosition = getSizeOfLine(file, limit);  // Get the number of characters to read
 
@@ -96,7 +126,7 @@ FileData getFileData (const int file) {
         // Empty-ing the buffer
         memset(word,0,strlen(word));
         word[0] = '\0';
-
+        free(word_cpy);
     }
 
     free(word);

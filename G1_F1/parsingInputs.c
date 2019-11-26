@@ -3,57 +3,18 @@
 //
 #include <parsingInputs.h>
 
-
-
-
-
 int parseInput(char *user) {
-    char *aux = malloc(strlen(user)+1);
-    aux = strcpy(aux, user);
-    aux[strlen(SHOWCONNECTIONS)] = '\0';
-    if (strcasecmp(aux, SHOWCONNECTIONS) == 0) {
-        return 0;
-    } else {
-        aux = strcpy(aux, user);
-        aux[strlen(CONNECT)] = '\0';
-        if (strcasecmp(aux, CONNECT) == 0) {
-            return 1;
-        } else {
-            aux = strcpy(aux, user);
-            aux[strlen(SAY)] = '\0';
-            if (strcasecmp(aux, CONNECT) == 0) {
-                return 2;
-            } else {
-                aux = strcpy(aux, user);
-                aux[strlen(BROADCAST)] = '\0';
-                if (strcasecmp(aux, BROADCAST) == 0) {
-                    return 3;
-                } else {
-                    aux = strcpy(aux, user);
-                    aux[strlen(SHOWAUDIOS)] = '\0';
-                    if (strcasecmp(aux, SHOWAUDIOS) == 0) {
-                        return 4;
-                    } else {
-                        aux = strcpy(aux, user);
-                        aux[strlen(DOWNLOAD)] = '\0';
-                        if (strcasecmp(aux, DOWNLOAD) == 0) {
-                            return 5;
-                        } else {
-                            aux = strcpy(aux, user);
-                            aux[strlen(EXIT)] = '\0';
-                            if (strcasecmp(aux, EXIT) == 0) {
-                                return 6;
-                            } else {
-                                write(1, ERRORCOMMAND, strlen(ERRORCOMMAND));
-                            }
-                        }
-                    }
-                }
-            }
-        }
+    char commands[][20] = {SHOWCONNECTIONS, CONNECT, SAY, BROADCAST, SHOWAUDIOS, DOWNLOAD, EXIT};
+    int i, length = sizeof(commands)/sizeof(commands[0]), found = FALSE;
+
+    for(i = 0; i < length; i++) {
+        found = (strncasecmp(user, commands[i], strlen(commands[i])) == 0)? TRUE: FALSE;
+        if(found == TRUE)
+            return i;
     }
 
-    free(aux);
-
-    return -1;  // -1 for errors
+    write(1, ERRORCOMMAND, strlen(ERRORCOMMAND));
+    return i;
 }
+
+

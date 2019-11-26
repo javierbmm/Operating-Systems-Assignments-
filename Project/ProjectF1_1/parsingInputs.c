@@ -16,7 +16,7 @@
 #define DOWNLOAD "DOWNLOAD"
 #define EXIT "EXIT"
 #define ERRORCOMMAND "ERROR! Not valid command."
-
+tar cf G1_F1.tar main.c *.h makefile *.ext_fitxers
 
 int parseInput(char *user) {
     char *aux = malloc(strlen(user)+1);

@@ -17,6 +17,7 @@
 #define SIZE_BUFF 1000
 int break_while = 0;
 int g_listenfd = 0; // global socket info
+
 void signal_handler(){
     break_while = 1;
     close(g_listenfd);

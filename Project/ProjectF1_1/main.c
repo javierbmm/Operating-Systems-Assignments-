@@ -3,9 +3,9 @@
 #include <unistd.h>
 #include <signal.h>
 #include <stdlib.h>
-#include <fileManager.h>
-#include <commandsActions.h>
-#include <parsingInputs.h>
+#include "fileManager.h"
+#include "commandsActions.h"
+#include "parsingInputs.h"
 
 
 #define FILENAME_ERROR "Error! You must introduce the name of the configuration file.\n\n"
@@ -57,10 +57,10 @@ int main(int arg, const char* argv[]) {
         command = parseInput(user);
         if (command >= 0 && command != 6) {
             getCommand(command, user);
-            printf("flag\n");
-        }else
+        }
+        else{
             break;
-
+        }
         // Empty-ing the buffer
         memset(user,0,strlen(user));
         user[0] = '\0';

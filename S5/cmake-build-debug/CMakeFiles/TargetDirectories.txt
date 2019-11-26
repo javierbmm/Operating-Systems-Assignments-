@@ -1,0 +1,3 @@
+D:/dev/C/Operating Systems/Operating-Systems-Assignments-/S5/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+D:/dev/C/Operating Systems/Operating-Systems-Assignments-/S5/cmake-build-debug/CMakeFiles/S5.dir
+D:/dev/C/Operating Systems/Operating-Systems-Assignments-/S5/cmake-build-debug/CMakeFiles/edit_cache.dir
