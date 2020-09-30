@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
-    <generated>
-      <config projectName="G1_F1" targetName="G1_F1" />
-    </generated>
+    <generated />
   </component>
   <component name="CMakeSettings">
     <configurations>
@@ -11,7 +9,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4f64a1de-836b-4b3c-87c0-31b75116d134" name="Default Changelist" comment="" />
+    <list default="true" id="7065a54d-70d0-48a1-81f4-75b71f789556" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,8 +22,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
-  <component name="ProjectId" id="1TtVe4XBE7EOBxAMBk9FoYHeD2t" />
+  <component name="ProjectId" id="1UU5H5bKvZ35jo90xFtBfracdMy" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="true" />
@@ -34,7 +31,13 @@
     <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Projects/SO_project" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\dev\C\Operating Systems\Operating-Systems-Assignments-\S7" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -48,29 +51,17 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
-    <configuration name="G1_F1" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="G1_F1" TARGET_NAME="G1_F1" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="G1_F1" RUN_TARGET_NAME="G1_F1">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="4f64a1de-836b-4b3c-87c0-31b75116d134" name="Default Changelist" comment="" />
-      <created>1574279470758</created>
+      <changelist id="7065a54d-70d0-48a1-81f4-75b71f789556" name="Default Changelist" comment="" />
+      <created>1575398242323</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1574279470758</updated>
-      <workItem from="1574279473897" duration="328000" />
-      <workItem from="1574279893038" duration="1563000" />
-      <workItem from="1574551640323" duration="1344000" />
-      <workItem from="1574601890175" duration="17332000" />
-      <workItem from="1574631223675" duration="8314000" />
-      <workItem from="1574793781025" duration="1384000" />
+      <updated>1575398242323</updated>
+      <workItem from="1575398243517" duration="7008000" />
     </task>
     <servers />
   </component>
@@ -82,9 +73,7 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>

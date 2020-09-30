@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="aac60126-98a8-4307-8742-ea7796231db4" name="Local-ubuntut" url="http://192.168.1.150">
+        <fileTransfer port="0" accessType="LOCAL" />
+      </webServer>
+      <webServer id="6c4d5640-4ce0-4106-8cc3-2f10208e832b" name="local-ubuntu" url="http://192.168.1.150">
+        <fileTransfer host="192.168.1.150" port="22" rootFolder="/home/javierubuntu/remote" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

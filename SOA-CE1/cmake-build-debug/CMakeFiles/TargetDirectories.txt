@@ -1,0 +1,3 @@
+D:/dev/C/Operating Systems/Operating-Systems-Assignments-/SOA-CE1/cmake-build-debug/CMakeFiles/SOA_CE1.dir
+D:/dev/C/Operating Systems/Operating-Systems-Assignments-/SOA-CE1/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/dev/C/Operating Systems/Operating-Systems-Assignments-/SOA-CE1/cmake-build-debug/CMakeFiles/rebuild_cache.dir
